@@ -1,0 +1,103 @@
+---
+name: Amazon Seller Central (example)
+type: txt
+format_serialized: |
+          a:5:{s:9:"delimiter";s:3:"tab";s:9:"enclosure";s:1:""";s:14:"include_header";i:1;s:12:"extra_header";s:225:"TemplateType=Custom Version=2016.0407
+          Category (item-type)  Seller SKU  Product ID  Product ID Type Title Brand Manufacturer  Product Type  Your price  Quantity  Shipping-Template Main Image URL  Swatch Image URL  Description";s:6:"schema";a:15:{i:0;a:5:{s:5:"order";i:0;s:6:"header";s:9:"item_type";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:13:"category.name";}i:1;a:5:{s:5:"order";i:1;s:6:"header";s:5:"Title";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:4:"name";}i:2;a:5:{s:5:"order";i:2;s:6:"header";s:8:"item_sku";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:3:"sku";}i:3;a:5:{s:5:"order";i:3;s:6:"header";s:19:"external_product_id";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:0:"";}i:4;a:5:{s:5:"order";i:4;s:6:"header";s:24:"external_product_id_type";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:0:"";}i:5;a:5:{s:5:"order";i:5;s:6:"header";s:9:"iten_name";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:4:"name";}i:6;a:5:{s:5:"order";i:6;s:6:"header";s:10:"brand_name";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:0:"";}i:7;a:5:{s:5:"order";i:7;s:6:"header";s:12:"manufacturer";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:12:"manufacturer";}i:8;a:5:{s:5:"order";i:8;s:6:"header";s:17:"feed_product_type";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:13:"category.name";}i:9;a:5:{s:5:"order";i:9;s:6:"header";s:14:"standart_price";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:5:"price";}i:10;a:5:{s:5:"order";i:10;s:6:"header";s:8:"quantity";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:3:"qty";}i:11;a:5:{s:5:"order";i:11;s:6:"header";s:28:"merchant_shipping_group_name";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:0:"";}i:12;a:5:{s:5:"order";i:12;s:6:"header";s:14:"main_image_url";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:5:"image";}i:13;a:5:{s:5:"order";i:13;s:6:"header";s:16:"swatch_image_url";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:12:"swatch_image";}i:14;a:5:{s:5:"order";i:14;s:6:"header";s:19:"product_description";s:4:"type";s:0:"";s:7:"pattern";s:0:"";s:9:"attribute";s:11:"description";}}}
+csv_delimiter: tab
+csv_enclosure: "
+csv_include_header: 1
+csv_extra_header: |
+          TemplateType=Custom Version=2016.0407
+          Category (item-type)  Seller SKU  Product ID  Product ID Type Title Brand Manufacturer  Product Type  Your price  Quantity  Shipping-Template Main Image URL  Swatch Image URL  Description
+csv_schema:
+          - 
+                    order: 0
+                    header: item_type
+                    type: ""
+                    pattern: ""
+                    attribute: category.name
+          - 
+                    order: 1
+                    header: Title
+                    type: ""
+                    pattern: ""
+                    attribute: name
+          - 
+                    order: 2
+                    header: item_sku
+                    type: ""
+                    pattern: ""
+                    attribute: sku
+          - 
+                    order: 3
+                    header: external_product_id
+                    type: ""
+                    pattern: ""
+                    attribute: ""
+          - 
+                    order: 4
+                    header: external_product_id_type
+                    type: ""
+                    pattern: ""
+                    attribute: ""
+          - 
+                    order: 5
+                    header: iten_name
+                    type: ""
+                    pattern: ""
+                    attribute: name
+          - 
+                    order: 6
+                    header: brand_name
+                    type: ""
+                    pattern: ""
+                    attribute: ""
+          - 
+                    order: 7
+                    header: manufacturer
+                    type: ""
+                    pattern: ""
+                    attribute: manufacturer
+          - 
+                    order: 8
+                    header: feed_product_type
+                    type: ""
+                    pattern: ""
+                    attribute: category.name
+          - 
+                    order: 9
+                    header: standart_price
+                    type: ""
+                    pattern: ""
+                    attribute: price
+          - 
+                    order: 10
+                    header: quantity
+                    type: ""
+                    pattern: ""
+                    attribute: qty
+          - 
+                    order: 11
+                    header: merchant_shipping_group_name
+                    type: ""
+                    pattern: ""
+                    attribute: ""
+          - 
+                    order: 12
+                    header: main_image_url
+                    type: ""
+                    pattern: ""
+                    attribute: image
+          - 
+                    order: 13
+                    header: swatch_image_url
+                    type: ""
+                    pattern: ""
+                    attribute: swatch_image
+          - 
+                    order: 14
+                    header: product_description
+                    type: ""
+                    pattern: ""
+                    attribute: description

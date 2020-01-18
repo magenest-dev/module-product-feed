@@ -1,0 +1,91 @@
+name: PriceGrabber
+type: txt
+csv:
+  delimiter: '|'
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - order: '0'
+      header: 'Product Name'
+      type:
+      pattern:
+      attribute: name
+    
+    - order: '1'
+      header: 'Manufacturer Part Number (MPN)'
+      type:
+      pattern: '{mpn}'
+      attribute: sku
+    
+    - order: '2'
+      header: UPC
+      type:
+      pattern: '{upc}'
+      attribute:
+    
+    - order: '3'
+      header: 'Unique Retailer SKU'
+      type:
+      pattern:
+      attribute: sku
+    
+    - order: '4'
+      header: Categorization
+      type:
+      pattern:
+      attribute: category_path
+    
+    - order: '5'
+      header: 'Detailed Description'
+      type:
+      pattern:
+      attribute: description
+    
+    - order: '6'
+      header: 'Selling Price'
+      type:
+      pattern:
+      attribute: final_price
+    
+    - order: '7'
+      header: Availability
+      type: pattern
+      pattern: 'Yes'
+      attribute:
+    
+    - order: '8'
+      header: 'Product URL'
+      type:
+      pattern:
+      attribute: url
+    
+    - order: '9'
+      header: 'Image URL'
+      type:
+      pattern:
+      attribute: image
+    
+    - order: '10'
+      header: 'Product Condition'
+      type: pattern
+      pattern: new
+      attribute:
+    
+    - order: '11'
+      header: 'Shipping Costs'
+      type: pattern
+      pattern:
+      attribute:
+    
+    - order: '12'
+      header: Weight
+      type:
+      pattern:
+      attribute: weight
+    
+    - order: '13'
+      header: Manufacturer
+      type:
+      pattern:
+      attribute: manufacturer

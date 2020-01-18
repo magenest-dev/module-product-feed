@@ -1,0 +1,58 @@
+.feed__variable {
+    .lib-clearfix();
+
+    .feed__variable-code {
+        float: left;
+        width: 60%;
+
+        .help-note {
+            margin-top: 1rem;
+            font-size: 1.3rem;
+            color: #666;
+        }
+
+    }
+    .feed__variable-result {
+        float: left;
+        width: 39%;
+        margin-left: 1%;
+        overflow: hidden;
+
+        .refresh {
+            opacity: 0.1;
+        }
+
+        .product_head {
+            background: #f8f8f8;
+            padding: 0.5rem;
+            font-weight: bold;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        #php_result {
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            overflow: scroll;
+        }
+
+        .feed__variable-products {
+            display: table;
+            width: 100%;
+
+            .input {
+                width: 100%;
+                display: table-cell;
+                input[type="text"] {
+                    width: 100%;
+                    border-right: none;
+                }
+            }
+
+            .action {
+                display: table-cell;
+                vertical-align: top;
+                width: 1%;
+            }
+        }
+    }
+}

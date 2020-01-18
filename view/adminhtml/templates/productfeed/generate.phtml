@@ -1,0 +1,33 @@
+<div style="display: none;" id="generate-queue-process">
+    <div class="queue-type" id="Queue">
+        <div id="queue-label" class="queue-label">
+
+        </div>
+        <div id="progressbar" class="queue-process">
+            <div data-percent="0" class="process-bar">
+                <p class="progress">0%</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #queueProcess {
+        margin-bottom: 10px;
+    }
+    #queueProcess .queue-process {
+        width: 500px;
+        background-color: #e3e3e3;
+    }
+    #queueProcess .process-bar{
+        width: 0;
+        height: 30px;
+        background-color: #eb5202;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+    .queue-process{
+        width:100% !important;
+    }
+</style>

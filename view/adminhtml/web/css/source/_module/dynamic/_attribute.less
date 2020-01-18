@@ -1,0 +1,141 @@
+.feed__attribute-grid-container {
+    margin-top: -4rem;
+    .grid-header {
+        background: #efefef;
+        .lib-clearfix();
+        font-weight: bold;
+        text-align: center;
+        padding: .8rem 0;
+
+        .col-conditions {
+            float: left;
+            width: 60%;
+        }
+
+        .col-result {
+            float: left;
+            width: 40%;
+        }
+    }
+}
+.feed__attribute-grid {
+    @background: #efefef;
+    @control-color: #adadad;
+
+    margin-bottom: 1rem !important;
+    position: relative;
+    overflow: auto;
+    padding: 0;
+    list-style: none;
+
+    >li {
+        background: @background;
+        margin-bottom: 2px;
+        padding: .5rem 0;
+        position: relative;
+
+        .col-sort {
+            position: absolute;
+            left: 0;
+            top: .5rem;
+            width: 3rem;
+            text-align: center;
+        }
+        .col-conditions {
+            .lib-clearfix();
+            float: left;
+            width: 60%;
+            padding-left: 3rem;
+            box-sizing: border-box;
+
+            >button {
+                float: right;
+                margin-right: 3rem;
+            }
+
+            ol {
+                list-style: none;
+                padding: 0;
+
+                >li {
+                    .lib-clearfix();
+                    position: relative;
+                    padding-bottom: 1rem;
+
+                    .col-attribute, .col-operator, .col-value {
+                        float: left;
+                        box-sizing: border-box;
+                        select, input[type="text"] {
+                            width: 100%;
+                        }
+                    }
+
+                    .col-attribute {
+                        width: 50%;
+                    }
+
+                    .col-operator {
+                        padding-left: 1rem;
+                        width: 20%;
+                    }
+
+                    .col-value {
+                        padding-left: 1rem;
+                        padding-right: 3rem;
+                        width: 30%;
+                    }
+
+                    .col-remove {
+                        top: 0;
+                    }
+                }
+            }
+        }
+        .col-result {
+            float: left;
+            width: 40%;
+            padding-right: 3rem;
+            padding-left: 2rem;
+            box-sizing: border-box;
+
+            .col-type, .col-value {
+                float: left;
+                box-sizing: border-box;
+                select, input[type="text"] {
+                    width: 100%;
+                }
+            }
+
+            .col-type {
+                width: 30%;
+            }
+
+            .col-value {
+                padding-left: 1rem;
+                width: 70%;
+            }
+        }
+        .col-remove {
+            position: absolute;
+            top: .5rem;
+            right: 0;
+            width: 3rem;
+            text-align: center;
+        }
+    }
+}
+
+.feed__btn-icon {
+    transition: color 0.2s 0.1s linear;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #adadad;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 33px;
+
+    &:hover {
+        color: #777;
+    }
+}

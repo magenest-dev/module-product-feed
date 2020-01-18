@@ -1,0 +1,25 @@
+name: PriceRunner
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8"?>
+    <products>
+      {% for product in context.products %}
+      <product>
+        <Category><![CDATA[{{ product.category }}]]></Category>
+        <ProductName><![CDATA[{{ product.name }}]]></ProductName>
+        <ProductSKU><![CDATA[{{ product.sku }}]]></ProductSKU>
+        <Price>{{ product.final_price }}</Price>
+        <ShippingCost></ShippingCost>
+        <ProductURL><![CDATA[{{ product.url }}]]></ProductURL>
+        <ManufacturerSKU><![CDATA[{{ product.sku }}]]></ManufacturerSKU>
+        <ManufacturerName><![CDATA[{{ product.manufacturer }}]]></ManufacturerName>
+        <EAN><![CDATA[{{ product.ean }}]]></EAN>
+        <Description><![CDATA[{{ product.description | stripHtml | truncate: '255' }}]]></Description>
+        <imageURL><![CDATA[{{ product.image }}]]></imageURL>
+        <StockStatus>In Stock</StockStatus>
+        <DeliveryTime>3 days</DeliveryTime>
+        <RetailerMessage>Free shipping today</RetailerMessage>
+      </product>
+      {% endfor %}
+    </products>

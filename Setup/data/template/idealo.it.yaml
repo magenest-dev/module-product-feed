@@ -1,0 +1,103 @@
+name: idealo.it
+type: csv
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - order: '0'
+      header: 'Numero articolo'
+      type:
+      pattern:
+      attribute: entity_id
+    
+    - order: '1'
+      header: 'EAN / (European article number)'
+      type:
+      pattern:
+      attribute: ean
+    
+    - order: '2'
+      header: 'Codice del produttore'
+      type:
+      pattern:
+      attribute: mpn
+    
+    - order: '3'
+      header: 'Denominazione del Prodotto'
+      type:
+      pattern:
+      attribute: name
+    
+    - order: '4'
+      header: 'Categoria nel negozio'
+      type:
+      pattern:
+      attribute: category_path
+    
+    - order: '5'
+      header: Prezzo
+      type:
+      pattern:
+      attribute: price
+    
+    - order: '6'
+      header: 'Tempo di consegna'
+      type:
+      pattern:
+      attribute:
+    
+    - order: '7'
+      header: 'URL del prodotto'
+      type:
+      pattern:
+      attribute: url
+    
+    - order: '8'
+      header: 'URL Foto'
+      type:
+      pattern:
+      attribute: image
+    
+    - order: '9'
+      header: 'Pagamento anticipato'
+      type:
+      pattern:
+      attribute:
+    
+    - order: '10'
+      header: Contrassegno
+      type: pattern
+      pattern: EUR
+      attribute:
+    
+    - order: '11'
+      header: Paypal
+      type:
+      pattern:
+      attribute:
+    
+    - order: '12'
+      header: Fattura
+      type:
+      pattern:
+      attribute:
+    
+    - order: '13'
+      header: 'Click & Buy'
+      type:
+      pattern:
+      attribute:
+    
+    - order: '14'
+      header: 'Commento sui costi di spedizione'
+      type:
+      pattern:
+      attribute:
+    
+    - order: '15'
+      header: 'Descrizione del prodotto'
+      type:
+      pattern:
+      attribute: description

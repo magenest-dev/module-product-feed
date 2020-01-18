@@ -1,0 +1,25 @@
+<?php
+//@codingStandardsIgnoreFile
+
+/** @var \Magenest\ProductFeed\Helper\Output $outputHelper */
+$outputHelper = $this->helper('Magenest\ProductFeed\Helper\Output');
+?>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $.attributes = <?php echo \Zend_Json_Encoder::encode($outputHelper->getAttributeOptions()) ?>;
+        $.modifiers = <?php echo \Zend_Json_Encoder::encode($outputHelper->getFilterOptions()) ?>;
+        $.patternTypes = <?php echo \Zend_Json_Encoder::encode($outputHelper->getPatternTypeOptions()) ?>;
+    });
+</script>
+
+<script type="text/x-magento-init">
+    <?php echo \Zend_Json_Encoder::encode($block->getJsConfig()) ?>
+
+</script>
+
+<div data-bind="scope: 'schema_xml'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>

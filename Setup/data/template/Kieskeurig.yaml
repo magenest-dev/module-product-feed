@@ -1,0 +1,26 @@
+name: Kieskeurig
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <feed>
+      {% for product in context.products %}
+      <item>
+        <title><![CDATA[{{ product.name | stripHtml | truncate: '70' }}]]></title>
+        <brand><![CDATA[{{ product.manufacturer }}]]></brand>
+        <description><![CDATA[{{ product.description | stripHtml | truncate: '255' }}]]></description>
+        <category><![CDATA[{{ product.category.path }}]]></category>
+        <id><![CDATA[{{ product.sku }}]]></id>
+        <image_link><![CDATA[{{ product.image }}]]></image_link>
+        <link><![CDATA[{{ product.url }}]]></link>
+        <weight>{{ product.weight }} KG</weight>
+        <price>{{ product.final_price }}</price>
+        <availability>{{ product.stock_status }}</availability>
+        <quantity>{{ product.qty }}</quantity>
+        <upc>{{ product.upc }}</upc>
+        <ean>{{ product.ean }}</ean>
+        <levertijd></levertijd>
+        <verzendkosten>10</verzendkosten>
+      </item>
+      {% endfor %}
+    </feed>

@@ -1,0 +1,16 @@
+name: 'Sears.com Inventory'
+type: xml
+xml:
+  schema: |
+    <store-inventory xmlns="http://seller.marketplace.sears.com/catalog/v7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://seller.marketplace.sears.com/catalog/v7 ../../../../../rest/inventory/import/v7/store-inventory.xsd">
+      {% for product in context.products %}
+      <item item-id="{{ product.sku }}">
+        <locations>
+          <location location-id="6969">
+            <quantity>{{ product.qty }}</quantity>
+            <pick-up-now-eligible>false</pick-up-now-eligible>
+          </location>
+        </locations>
+      </item>
+      {% endfor %}
+    </store-inventory>

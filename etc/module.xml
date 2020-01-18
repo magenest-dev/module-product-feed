@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2020 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_ProductFeed extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_ProductFeed
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Magenest_ProductFeed"  setup_version ="1.0.0">
+        <sequence>
+            <module name="Magento_Store"/>
+            <module name="Magento_Theme"/>
+            <module name="Magento_Variable"/>
+        </sequence>
+    </module>
+</config>

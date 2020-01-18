@@ -1,0 +1,212 @@
+name: SingleFeed
+type: csv
+xml_schema: null
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - header: 'MPN (MANUFACTURER PART NUMBER)'
+      order: 0
+      type:
+      pattern:
+      attribute: sku
+    
+    - header: 'UNIQUE INTERNAL CODE'
+      order: 1
+      type:
+      pattern:
+      attribute: sku
+    
+    - header: 'PRODUCT URL'
+      order: 2
+      type:
+      pattern:
+      attribute: url
+    
+    - header: Mobile_URL
+      order: 3
+      type:
+      pattern:
+      attribute: url
+    
+    - header: 'PRODUCT NAME'
+      order: 4
+      type:
+      pattern:
+      attribute: name
+    
+    - header: 'PRODUCT DESCRIPTION'
+      order: 5
+      type:
+      pattern:
+      attribute: description
+    
+    - header: Stock_Description
+      order: 6
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'PRODUCT PRICE'
+      order: 7
+      type:
+      pattern:
+      attribute: final_price
+    
+    - header: 'SALE PRICE'
+      order: 8
+      type:
+      pattern:
+      attribute: cost
+    
+    - header: 'IMAGE URL'
+      order: 9
+      type:
+      pattern:
+      attribute: image
+    
+    - header: 'Alt Image 1'
+      order: 10
+      type:
+      pattern:
+      attribute: image2
+    
+    - header: 'Alt Image 2'
+      order: 11
+      type:
+      pattern:
+      attribute: image3
+    
+    - header: 'Alt Image 3'
+      order: 12
+      type:
+      pattern:
+      attribute: image4
+    
+    - header: Product_Type
+      order: 13
+      type:
+      pattern:
+      attribute: category
+    
+    - header: Category_ID
+      order: 14
+      type:
+      pattern:
+      attribute: category_id
+    
+    - header: CATEGORY
+      order: 15
+      type:
+      pattern:
+      attribute: category
+    
+    - header: Sub-category
+      order: 16
+      type:
+      pattern:
+      attribute:
+    
+    - header: MANUFACTURER
+      order: 17
+      type:
+      pattern:
+      attribute: manufacturer
+    
+    - header: 'STOCK STATUS'
+      order: 18
+      type:
+      pattern:
+      attribute: is_in_stock
+    
+    - header: 'SHIPPING COST'
+      order: 19
+      type: pattern
+      pattern: '4.99'
+      attribute:
+    
+    - header: Coupon_Code
+      order: 20
+      type: pattern
+      pattern: 'Visit store for details'
+      attribute:
+    
+    - header: Coupon_Code_Description
+      order: 21
+      type: pattern
+      pattern: 'Visit store for details'
+      attribute:
+    
+    - header: 'CONDITION (IF NOT NEW)'
+      order: 22
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: GENDER
+      order: 23
+      type:
+      pattern:
+      attribute: gender
+    
+    - header: AGE
+      order: 24
+      type:
+      pattern:
+      attribute:
+    
+    - header: RANGE
+      order: 25
+      type:
+      pattern:
+      attribute:
+    
+    - header: COLOR
+      order: 26
+      type:
+      pattern:
+      attribute: color
+    
+    - header: Material
+      order: 27
+      type:
+      pattern:
+      attribute:
+    
+    - header: Estimated_Ship_Date
+      order: 28
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: Merchandising_Type
+      order: 29
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: Bundle
+      order: 30
+      type: pattern
+      pattern: 'No'
+      attribute:
+    
+    - header: Related_Products
+      order: 31
+      type: pattern
+      pattern: 'No'
+      attribute:
+    
+    - header: 'PROMOTIONAL MESSAGE'
+      order: 32
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: 'Google Age Group'
+      order: 33
+      type: pattern
+      pattern:
+      attribute:

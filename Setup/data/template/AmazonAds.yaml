@@ -1,0 +1,115 @@
+name: AmazonAds
+type: txt
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: 0
+  extra_header:
+  schema:
+    - order: 0
+      header: Category
+      type:
+      pattern:
+      attribute: category
+
+    - order: 1
+      header: Title
+      type:
+      pattern:
+      attribute: name
+
+    - order: 2
+      header: Link
+      type:
+      pattern:
+      attribute: url
+
+    - order: 3
+      header: SKU
+      type:
+      pattern:
+      attribute: sku
+
+    - order: 4
+      header: Price
+      type:
+      pattern:
+      attribute: final_price
+
+    - order: 5
+      header: Image
+      type:
+      pattern:
+      attribute: image
+
+    - order: 6
+      header: UPC
+      type:
+      pattern:
+      attribute:
+
+    - order: 7
+      header: Brand
+      type:
+      pattern:
+      attribute: manufacturer
+
+    - order: 8
+      header: 'Recommended Browse Node'
+      type: pattern
+      pattern:
+      attribute:
+
+    - order: 9
+      header: Department
+      type: pattern
+      pattern: 'men, women, unisex-adult'
+      attribute:
+
+    - order: 10
+      header: Description
+      type:
+      pattern:
+      attribute: description
+
+    - order: 11
+      header: Manufacturer
+      type:
+      pattern:
+      attribute: manufacturer
+
+    - order: 12
+      header: 'Mfr part number'
+      type:
+      pattern:
+      attribute: sku
+
+    - order: 13
+      header: 'Shipping Cost'
+      type:
+      pattern:
+      attribute:
+
+    - order: 14
+      header: 'Shipping Weight'
+      type:
+      pattern:
+      attribute: weight
+
+    - order: 15
+      header: Size
+      type:
+      pattern:
+      attribute: size
+
+    - order: 16
+      header: Color
+      type:
+      pattern:
+      attribute: color
+
+    - order: 17
+      header: Gender
+      type:
+      pattern:
+      attribute: gender

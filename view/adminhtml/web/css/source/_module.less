@@ -1,0 +1,49 @@
+@import '_module/lib/_codemirror.less';
+@import '_module/feed/_edit.less';
+@import '_module/feed/_progress.less';
+@import '_module/feed/_preview.less';
+@import '_module/feed/_library.less';
+@import '_module/dynamic/_category.less';
+@import '_module/dynamic/_attribute.less';
+@import '_module/dynamic/_variable.less';
+@import '_module/template/edit/tab/_schema.less';
+
+button {
+    .fa {
+        margin-left: -6px;
+        margin-right: 6px;
+        opacity: 0.7;
+    }
+
+    &:hover {
+        .fa {
+            opacity: 1;
+        }
+    }
+}
+.queue-process .process-bar{
+    border: 2px solid #74AF5C;
+    margin-bottom: 30px;
+
+    .progress{
+        background-color: #74AF5C;
+        height: 40px;
+        line-height: 20px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 0;
+        font-weight: 900;
+        color: #ffffff;
+
+        &.success {
+            background-color: #74af5c;
+            color: white;
+        }
+    }
+}
+
+.feed-aside {
+    .modal-inner-wrap {
+        max-width: 750px;
+    }
+}

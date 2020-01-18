@@ -1,0 +1,31 @@
+name: Newegg(inventory)
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8"?>
+    <NeweggEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Header>
+        <DocumentVersion>1.0</DocumentVersion>
+      </Header>
+      <MessageType>Inventory</MessageType>
+      <Overwrite>No</Overwrite>
+      <Message>
+        <Inventory>
+          {% for product in context.products %}
+          <Item>
+            <SellerPartNumber><![CDATA[{{ product.sku }}]]></SellerPartNumber>
+            <SellingPrice>{{ product.final_price }}</SellingPrice>
+            <Inventory>{{ product.qty }}</Inventory>
+            <FulfillmentOption>Seller</FulfillmentOption>
+            <Shipping>default</Shipping>
+            <ActivationMark>True</ActivationMark>
+            <Currency>USD</Currency>
+            <MSRP></MSRP>
+            <NeweggItemNumber></NeweggItemNumber>
+            <MAP></MAP>
+            <CheckoutMAP>False</CheckoutMAP>
+          </Item>
+          {% endfor %}
+        </Inventory>
+      </Message>
+    </NeweggEnvelope>

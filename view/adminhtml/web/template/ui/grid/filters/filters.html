@@ -1,0 +1,81 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="data-grid-filters-actions-wrap" collapsible="openClass: false, closeOnOuter: false">
+    <div class="data-grid-filters-action-wrap">
+        <div class="action-default" data-action="grid-filter-expand" disable="!hasVisible()" translate="'Filters'"
+            css="_active: hasVisible() && $collapsible.opened()"
+            toggleCollapsible/>
+    </div>
+</div>
+
+<scope args="chips" render=""/>
+
+<div class="admin__data-grid-filters-wrap" data-part="filter-form" css="_show: hasVisible() && $collapsible.opened()" keyboard="{ 13: apply }">
+    <fieldset class="admin__fieldset admin__data-grid-filters">
+        <legend class="admin__filters-legend">
+            <span translate="'Advanced filter'"/>
+        </legend>
+        <fieldset class="admin__form-field" outereach="getRanges()" visible="$parent.isFilterVisible($data)" render=""/>
+        <div class="admin__form-field" outereach="getPlain()" visible="$parent.isFilterVisible($data)" render=""/>
+    </fieldset>
+
+    <div class="admin__data-grid-filters-footer">
+        <div class="admin__footer-main-actions">
+            <button class="action-tertiary" type="button" data-action="grid-filter-cancel" click="cancel" closeCollapsible>
+                <span translate="'Cancel'"/>
+            </button>
+            <button class="action-secondary" type="button" data-action="grid-filter-apply" click="apply" closeCollapsible>
+                <span translate="'Apply Filters'"/>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .admin__data-grid-pager-wrap
+    {
+        padding-right: 30px;
+    }
+
+    .action-previous,.action-next
+    {
+        padding: 6px 0;
+    }
+    .selectmenu
+    {
+        padding: 0 7px 0 0 !important;
+    }
+    .selectmenu-item
+    {
+        overflow: hidden;
+    }
+    .admin__form-field-control
+    {
+        min-width: 40%;
+    }
+    .admin__form-field-label
+    {
+        padding-right: 0px !important;
+    }
+    .admin__data-grid-filters-wrap .admin__form-field
+    {
+        width: 29% !important;
+        padding-top: 0px !important;
+    }
+    .admin__data-grid-filters-wrap .admin__form-field .admin__form-field
+    {
+        width: 100% !important;
+    }
+    .admin__data-grid-filters-wrap .admin__form-field .admin__form-field .admin__form-field-label
+    {
+        width: 24%;
+    }
+    .admin__scope-old legend
+    {
+        padding: 0!important;
+    }
+</style>

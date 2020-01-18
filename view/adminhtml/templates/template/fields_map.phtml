@@ -1,0 +1,100 @@
+<?php
+/* @var $block TemplateContent */
+
+use Magenest\ProductFeed\Block\Adminhtml\Template\Edit\Tab\Renderer\TemplateContent;
+use Magento\Eav\Model\Entity\Attribute;
+
+/* @var $modifiers \Magenest\ProductFeed\Helper\Data */
+$element = $block->getElement();
+$note = $element->getNote() ? '<div class="note">' . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() == 'checkbox' || $element->getExtType() == 'radio';
+$addOn = $element->getBeforeElementHtml() || $element->getAfterElementHtml();
+$fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass .= ($elementBeforeLabel) ? ' choice' : '';
+$fieldClass .= ($addOn) ? ' with-addon' : '';
+$fieldClass .= ($element->getRequired()) ? ' _required' : '';
+$fieldClass .= ($note) ? ' with-note' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" '
+    . $block->getUiId('form-field', $element->getId());
+$fieldsMap = $block->getFieldsMap() ? $block->getFieldsMap() : '{}';
+
+$helperData = $this->helper(\Magenest\ProductFeed\Helper\Data::class);
+$modifiersData = $helperData->serialize($block->getModifier());
+//$attrTemplate = $helperData->serialize($block->getAttrTemplate());
+$template = $helperData->getTemplate();
+?>
+
+<?php if (!$element->getNoDisplay()): ?>
+    <?php if ($element->getType() == 'hidden'): ?>
+        <?php echo $element->getElementHtml() ?>
+    <?php else: ?>
+        <div<?php echo $fieldAttributes ?>>
+            <?php if ($elementBeforeLabel): ?>
+                <?php echo $element->getElementHtml() ?>
+                <?php echo $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <?php echo $note ?>
+            <?php else: ?>
+                <?php echo $element->getLabelHtml('', $element->getScopeLabel()) ?>
+                <div class="admin__field-control control" style="display: none">
+                    <?php echo ($addOn) ? '<div class="addon">' . $element->getElementHtml() . '</div>' : $element->getElementHtml(); ?>
+                    <?php echo $block->getHintHtml() ?>
+                    <?php echo $note ?>
+                </div>
+                <?php
+                $eavAttrCollection = $block->getEavAttrCollection();
+                $number = 1;
+                ?>
+                <div id="attr-template" style="display: none">
+                    <option value="0"><?= __('--Please Select--') ?></option>
+                    <?php foreach ($block->getAttrTemplate() as $value): ?>
+                            <option value="<?php echo $value['value']; ?>">
+                                <?php echo $value['label']; ?>
+                            </option>
+                    <?php endforeach; ?>
+                </div>
+
+                <div id="select-attr" style="display: none">
+                    <option value="0"><?= __('--Please Select--') ?></option>
+                    <?php foreach ($block->getEavAttrCollection() as $groupAttr): ?>
+                        <optgroup
+                                label="<?php echo $groupAttr['label'] ?>"><?php echo $number . '. ' . $groupAttr['label'];
+                                $number++; ?>
+                            <?php foreach ($groupAttr['values'] as $attr): ?>
+                                <?php /** @var Attribute $attr */ ?>
+                                <option value="<?php echo $attr->getAttributeCode() ?>">
+                                    <?php echo $attr->getDefaultFrontendLabel() . "({$attr->getAttributeCode()})"; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </optgroup>
+                    <?php endforeach; ?>
+                </div>
+                <div id="fields-map" class="admin__scope-old">
+                    <div class="fields-header">
+                        <div class="row">
+                            <div class="fields-header__name"><?= __('Column Name') ?></div>
+                            <div class="fields-header__type"><?= __('Type') ?></div>
+                            <div class="fields-header__value"><?= __('Value') ?></div>
+                        </div>
+                    </div>
+                    <div class="fields-col"></div>
+                    <a id="add-column" class="btn"><?= __('Add') ?></a>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magenest_ProductFeed/js/productfeed/initTemplateTab":{
+                    "url": "<?php echo $block->getUrl('feed/index/index') ?>",
+                    "tempType": "<?= $template ?>",
+                    "fieldsMap": <?php echo $fieldsMap ?>,
+                    "modifiersData": <?php echo $modifiersData ?>
+                }
+            }
+        }
+</script>

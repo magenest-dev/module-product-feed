@@ -1,0 +1,15 @@
+name: 'Sears.com Price'
+type: xml
+xml:
+  schema: |
+    <pricing-feed xmlns="http://seller.marketplace.sears.com/pricing/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://seller.marketplace.sears.com/SellerPortal/s/schema/pricing pricing-xml-feed-v1.xsd">
+      <fbm-pricing>
+        {% for product in context.products %}
+        <item item-id="{{ product.entity_id }}">
+          <standard-price>{{ product.price }}</standard-price>
+          <handling-fee>0.00</handling-fee>
+          <map-price-indicator>strict</map-price-indicator>
+        </item>
+        {% endfor %}
+      </fbm-pricing>
+    </pricing-feed>

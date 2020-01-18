@@ -1,0 +1,25 @@
+name: ShopMania
+type: xml
+xml:
+  schema: |
+    <store>
+      <products>
+        {% for product in context.products %}
+        <Product>
+          <MPC><![CDATA[{{ product.sku }}]]></MPC>
+          <Category><![CDATA[{{ product.category.path }}]]></Category>
+          <Manufacturer><![CDATA[{{ product.manufacturer }}]]></Manufacturer >
+          <MPN>{{ product.mpn }}</MPN>
+          <Name><![CDATA[{{ product.name | truncate: '255' }}]]></Name>
+          <Description><![CDATA[{{ product.description | stripHtml | truncate: '255' }}]]></Description>
+          <URL><![CDATA[{{ product.url }}]]></URL>
+          <Image><![CDATA[{{ product.image }}]]></Image>
+          <Price>{{ product.final_price }}</Price>
+          <Currency>USD</Currency>
+          <Shipping><![CDATA[]]></Shipping>
+          <Availability>{{ product.stock_status }}</Availability>
+          <GTIN><![CDATA[{{ product.gtin }}]]></GTIN>
+        </Product>
+        {% endfor %}
+      </products>
+    </store>

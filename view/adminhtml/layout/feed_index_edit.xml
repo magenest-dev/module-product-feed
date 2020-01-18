@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Magenest_ProductFeed::css/lib/codemirror.css"/>
+        <css src="Magenest_ProductFeed::css/form/edit-feed.css"/>
+        <css src="Magenest_ProductFeed::css/font-awesome.css" />
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Magenest\ProductFeed\Block\Adminhtml\Menu\Edit\Tabs" name="tabs">
+                <block class="Magenest\ProductFeed\Block\Adminhtml\Menu\Edit\Tab\Logs" name="logs_grid">
+                    <uiComponent name="magenest_logs_feed_listing"/>
+                </block>
+                <action method="addTabAfter">
+                    <argument name="name" xsi:type="string">logs_grid</argument>
+                    <argument name="block" xsi:type="string">logs_grid</argument>
+                    <argument name="after" xsi:type="string">mapping</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magenest\ProductFeed\Block\Adminhtml\Menu\Edit" name="general"/>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magenest\ProductFeed\Block\Adminhtml\Generate"
+                   name="feed_index_generate"
+                   template="Magenest_ProductFeed::productfeed/generate.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

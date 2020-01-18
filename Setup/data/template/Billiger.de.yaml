@@ -1,0 +1,91 @@
+name: Billiger.de
+type: csv
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - order: 0
+      header: aid
+      type:
+      pattern:
+      attribute: entity_id
+    
+    - order: 1
+      header: name
+      type:
+      pattern:
+      attribute: name
+    
+    - order: 2
+      header: price
+      type:
+      pattern:
+      attribute: final_price
+    
+    - order: 3
+      header: link
+      type:
+      pattern:
+      attribute: url
+    
+    - order: 4
+      header: shop_cat
+      type:
+      pattern:
+      attribute: category_path
+    
+    - order: 5
+      header: pzn
+      type:
+      pattern:
+      attribute:
+    
+    - order: 6
+      header: brand
+      type:
+      pattern:
+      attribute: manufacturer
+    
+    - order: 7
+      header: mpnr
+      type:
+      pattern:
+      attribute: sku
+    
+    - order: 8
+      header: ean
+      type:
+      pattern: '{ean}'
+      attribute:
+    
+    - order: 9
+      header: desc
+      type:
+      pattern:
+      attribute: description
+    
+    - order: 10
+      header: image
+      type:
+      pattern:
+      attribute: image
+    
+    - order: 11
+      header: dlv_time
+      type: pattern
+      pattern: '1 - 3 Tage'
+      attribute:
+    
+    - order: 12
+      header: dlv_cost
+      type: pattern
+      pattern:
+      attribute:
+    
+    - order: 13
+      header: ppu
+      type: pattern
+      pattern:
+      attribute:

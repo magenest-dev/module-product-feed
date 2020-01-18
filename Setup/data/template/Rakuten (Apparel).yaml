@@ -1,0 +1,517 @@
+name: 'Rakuten (Apparel)'
+type: txt
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - header: seller-id
+      order: 0
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: gtin
+      order: 1
+      type:
+      pattern:
+      attribute:
+    
+    - header: "isbn"
+      order: 2
+      type:
+      pattern:
+      attribute:
+    
+    - header: mfg-name
+      order: 3
+      type:
+      pattern:
+      attribute: manufacturer
+    
+    - header: mfg-part-number
+      order: 4
+      type:
+      pattern:
+      attribute: sku
+    
+    - header: asin
+      order: 5
+      type:
+      pattern:
+      attribute:
+    
+    - header: seller-sku
+      order: 6
+      type:
+      pattern:
+      attribute: sku
+    
+    - header: title
+      order: 7
+      type:
+      pattern:
+      attribute: name
+    
+    - header: description
+      order: 8
+      type:
+      pattern:
+      attribute: description
+    
+    - header: main-image
+      order: 9
+      type:
+      pattern:
+      attribute: image
+    
+    - header: additional-images
+      order: 10
+      type:
+      pattern:
+      attribute: image2
+    
+    - header: weight
+      order: 11
+      type:
+      pattern:
+      attribute: weight
+    
+    - header: features
+      order: 12
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: listing-price
+      order: 13
+      type:
+      pattern:
+      attribute: final_price
+    
+    - header: msrp
+      order: 14
+      type:
+      pattern:
+      attribute: final_price
+    
+    - header: category-id
+      order: 15
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: keywords
+      order: 16
+      type:
+      pattern:
+      attribute:
+    
+    - header: product-set-id
+      order: 17
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Age Gender'
+      order: 18
+      type: pattern
+      pattern: 'Unisex - Adult'
+      attribute:
+    
+    - header: 'Apparel Material'
+      order: 19
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Apparel Size'
+      order: 20
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Baby Sizes'
+      order: 21
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Bra Accessories Type'
+      order: 22
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Bra Cup Sizes'
+      order: 23
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Bra Type'
+      order: 24
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Chest Size'
+      order: 25
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Chest Size Range'
+      order: 26
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Children Suit Sizes'
+      order: 27
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Closure Type'
+      order: 28
+      type:
+      pattern:
+      attribute:
+    
+    - header: Color
+      order: 29
+      type:
+      pattern:
+      attribute: color
+    
+    - header: 'Color Class'
+      order: 30
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Fit Type'
+      order: 31
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Foot Style'
+      order: 32
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Gift Set'
+      order: 33
+      type:
+      pattern:
+      attribute:
+    
+    - header: Hooded
+      order: 34
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Inseam Size'
+      order: 35
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Leg Type'
+      order: 36
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Lingerie Type'
+      order: 37
+      type:
+      pattern:
+      attribute:
+    
+    - header: Lining
+      order: 38
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Neck Circumference Range'
+      order: 39
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Neck Style'
+      order: 40
+      type:
+      pattern:
+      attribute:
+    
+    - header: Occasion
+      order: 41
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'One Piece Style'
+      order: 42
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Outerwear Styles'
+      order: 43
+      type:
+      pattern:
+      attribute:
+    
+    - header: Padding
+      order: 44
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Pajama Style'
+      order: 45
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Pant Size'
+      order: 46
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Pant Style'
+      order: 47
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Pants Type'
+      order: 48
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Pattern Style'
+      order: 49
+      type:
+      pattern:
+      attribute:
+    
+    - header: Profession
+      order: 50
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Regional Size Classification'
+      order: 51
+      type:
+      pattern:
+      attribute:
+    
+    - header: Set
+      order: 52
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Shapewear & Slips Type'
+      order: 53
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Shirts & Tops Size'
+      order: 54
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Size Modifier'
+      order: 55
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Skirt/Dress Length'
+      order: 56
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Skirts Style'
+      order: 57
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sleeve Length'
+      order: 58
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sleeve Style'
+      order: 59
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sock Length'
+      order: 60
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sock Size'
+      order: 61
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sock Style'
+      order: 62
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Sock Type'
+      order: 63
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Bottoms'
+      order: 64
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Fit'
+      order: 65
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Length'
+      order: 66
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Sets'
+      order: 67
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Sizes'
+      order: 68
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Style'
+      order: 69
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Suit Tops'
+      order: 70
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Swim Bottom Styles'
+      order: 71
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Swim Top Styles'
+      order: 72
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Swimwear Material'
+      order: 73
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Swimwear Type'
+      order: 74
+      type:
+      pattern:
+      attribute:
+    
+    - header: Theme
+      order: 75
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Top Style'
+      order: 76
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Undergarment Style'
+      order: 77
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Undergarment Type'
+      order: 78
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Underpants Type'
+      order: 79
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Undershirt Type'
+      order: 80
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Underwear Type'
+      order: 81
+      type:
+      pattern:
+      attribute:
+    
+    - header: 'Waist Size'
+      order: 82
+      type:
+      pattern:
+      attribute:
+    
+    - header: Waistlines
+      order: 83
+      type:
+      pattern:
+      attribute:
+    
+    - header: Wire
+      order: 84
+      type:
+      pattern:
+      attribute:

@@ -1,0 +1,24 @@
+name: Shopping.com
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <Products>
+      {% for product in context.products %}
+      <Product>
+        <Merchant_SKU><![CDATA[{{ product.sku }}]]></Merchant_SKU>
+        <MPN><![CDATA[{{ product.sku }}]]></MPN>
+        <Product_Name><![CDATA[{{ product.name }}]]></Product_Name>
+        <Product_URL><![CDATA[{{ product.url }}]]></Product_URL> 
+        <Image_URL>{{ product.image }}</Image_URL>
+        <Current_Price>{{ product.final_price }}</Current_Price> 
+        <Stock_Availability>Yes</Stock_Availability>
+        <Condition>New</Condition>
+        <Original_Price>{{ product.price }}</Original_Price> 
+        <Manufacturer><![CDATA[{{ product.manufacturer }}]]></Manufacturer>
+        <Product_Description><![CDATA[{{ product.description | stripHtml }}]]></Product_Description>
+        <Category><![CDATA[{{ product.category.path }}]]></Category>
+        <Merchandising_Type>New</Merchandising_Type>
+      </Product>
+      {% endfor %}
+    </Products>

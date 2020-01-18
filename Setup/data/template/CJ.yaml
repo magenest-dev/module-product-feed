@@ -1,0 +1,37 @@
+name: CJ
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0"?>
+    <!DOCTYPE product_catalog_data SYSTEM "http://www.jdoqocy.com/content/dtd/product_catalog_data_1_1.dtd">
+    <product_catalog_data>
+      <header>
+        <cid></cid>
+        <subid></subid>
+        <datefmt>{{context.time}}</datefmt>
+        <processtype>OVERWRITE</processtype>
+        <aid></aid>
+      </header>
+      {% for product in context.products %}
+      <product>
+        <name><![CDATA[{{ product.name }}]]></name>
+        <keywords><![CDATA[{{ product.meta_keyword }}]]></keywords>
+        <description><![CDATA[{{ product.description | stripHtml }}]]></description>
+        <sku><![CDATA[{{ product.sku }}]]></sku>
+        <buyurl><![CDATA[{{ product.url }}]]></buyurl>
+        <available>Yes</available>
+        <imageurl><![CDATA[{{ product.image }}]]></imageurl>
+        <price>{{ product.price }}</price>
+        <saleprice>{{ product.special_price }}</saleprice>
+        <currency>USD</currency>
+        <upc>{{ product.upc }}</upc>
+        <promotionaltext>promotional text</promotionaltext>
+        <advertisercategory><![CDATA[{{ product.category }}]]></advertisercategory>
+        <manufacturer><![CDATA[{{ product.manufacturer }}]]></manufacturer>
+        <offline>Yes</offline>
+        <online>Yes</online>
+        <instock>Yes</instock>
+        <condition>New</condition>
+      </product>
+      {% endfor %}
+    </product_catalog_data>

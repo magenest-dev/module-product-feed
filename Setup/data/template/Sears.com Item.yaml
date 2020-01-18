@@ -1,0 +1,40 @@
+name: 'Sears.com Item'
+type: xml
+xml:
+  schema: |
+    <catalog-feed xmlns="http://seller.marketplace.sears.com/catalog/v18" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://seller.marketplace.sears.com/catalog/v18 ../../../../../rest/catalog/import/v18/lmp-item.xsd">
+      <fbm-catalog>
+        <items>
+          {% for product in context.products %}
+          <item item-id="{{ product.sku }}">
+            <title><![CDATA[{{ product.name }}]]></title>
+            <short-desc><![CDATA[{{ product.short_description | stripHtml }}]]></short-desc>
+            <mature-content>false</mature-content>
+            <upc>{{ product.upc }}</upc>
+            <item-class id="{{ product.entity_id }}"></item-class>
+            <your-categorization><![CDATA[{{ product.category }}]]></your-categorization>
+            <long-desc><![CDATA[{{ product.description | stripHtml }}]]></long-desc>
+            <model-number>{{ pro{{ product.description | stripHtml }}
+            <standard-price>{{ product.price }}</standard-price>
+            <map-price-indicator>strict</map-price-indicator>
+            <brand><![CDATA[{{ product.manufacturer }}]]></brand>
+            <shipping-length>1</shipping-length>
+            <shipping-width>1</shipping-width>
+            <shipping-height>1</shipping-height>
+            <shipping-weight>{{ product.weight }}</shipping-weight>
+            <local-marketplace-flags>
+              <is-restricted>false</is-restricted>
+              <perishable>false</perishable>
+              <requires-refrigeration>false</requires-refrigeration>
+              <requires-freezing>false</requires-freezing>
+              <contains-alcohol>false</contains-alcohol>
+              <contains-tobacco>false</contains-tobacco>
+            </local-marketplace-flags> 
+            <image-url>
+              <url><![CDATA[{{ product.image }}]]></url>
+            </image-url>
+          </item>
+          {% endfor %}
+        </items>
+      </fbm-catalog>
+    </catalog-feed>

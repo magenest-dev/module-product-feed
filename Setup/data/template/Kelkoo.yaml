@@ -1,0 +1,28 @@
+name: Kelkoo
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <products>
+      {% for product in context.products %}
+      <product>
+        <title><![CDATA[{{ product.name }}]]></title>
+        <product-url><![CDATA[{{ product.url }}]]></product-url>
+        <price>{{ product.final_price }}</price>
+        <brand><![CDATA[{{ product.manufacturer }}]]></brand>
+        <description><![CDATA[{{ product.description | stripHtml | truncate: '300' }}]]></description>
+        <image-url><![CDATA[{{ product.image }}]]></image-url>
+        <ean>{{ product.ean }}</ean>
+        <merchant-category><![CDATA[{{ product.category }}]]></merchant-category>
+        <availability>1</availability>
+        <delivery-cost></delivery-cost>
+        <delivery-time><![CDATA[1-3 days]]></delivery-time>
+        <condition>0</condition>
+        <mobile-url><![CDATA[{{ product.url }}]]></mobile-url>
+        <kelkoo-category-id></kelkoo-category-id>
+        <mpn><![CDATA[{{ product.sku }}]]></mpn>
+        <sku><![CDATA[{{ product.sku }}]]></sku>
+        <colour><![CDATA[{{ product.color }}]]></colour>
+      </product>
+      {% endfor %}
+    </products>

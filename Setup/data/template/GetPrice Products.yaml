@@ -1,0 +1,22 @@
+name: 'GetPrice Products'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <STORE URL="{{ context.store.base_url }}" DATE="{{ context.time | dateFormat: "d.m.Y" }}" TIME="{{ context.time | dateFormat: "H:i:s" }}" NAME="STORE">
+      <PRODUCTS>
+        {% for product in context.products %}
+        <PRODUCT NUM="{{ product.entity_id }}">
+          <PRODUCT_NAME><![CDATA[{{ product.name }}]]></PRODUCT_NAME>
+          <CATEGORY_NAME><![CDATA[{{ product.category }}]]></CATEGORY_NAME>
+          <MODEL><![CDATA[{{ product.sku }}]]></MODEL>
+          <DESCRIPTION><![CDATA[{{ product.description | stripHtml }}]]></DESCRIPTION>
+          <PROUDUCT_URL><![CDATA[{{ product.url }}]]></PROUDUCT_URL>
+          <PRICE>{{ product.final_price }}</PRICE>
+          <IMAGE><![CDATA[{{ product.image }}]]></IMAGE>
+          <MANUFACTURER><![CDATA[{{ product.manufacturer }}]]></MANUFACTURER>
+          <SHIPMENT_COST>0</SHIPMENT_COST>
+        </PRODUCT>
+        {% endfor %}
+      </PRODUCTS>
+    </STORE>

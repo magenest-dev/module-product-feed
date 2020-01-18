@@ -1,0 +1,8 @@
+name: 'Sample XML Template'
+type: xml
+xml_schema: null
+csv_delimiter: null
+csv_enclosure: null
+csv_include_header: null
+csv_extra_header: null
+csv_schema: null

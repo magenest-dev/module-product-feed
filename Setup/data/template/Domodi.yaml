@@ -1,0 +1,33 @@
+name: Domodi
+type: xml
+xml:
+  schema: |
+<?xml version="1.0" encoding="utf-8"?>
+    <offers>
+      {% for product in context.products %}
+        <offer>
+          <id><![CDATA[{{ product.sku }}]]></id>
+          <url><![CDATA[{{ product.parent.url }}]]></url>
+          <price>{{ product.final_price }}</price>
+          <brand><![CDATA[{{ product.mgs_brand }}]]></brand>
+          <avail><![CDATA[1]]></avail>
+          <cat><![CDATA[{{ product.parent.variable:categories }}]]></cat>
+          <name><![CDATA[{{ product.name }}]]></name>
+          <imgs>
+            <img default="true"><![CDATA[{{ product.image }}]]></img>
+            {% for image in product.gallery %}
+              <img><![CDATA[{{ image }}]]></img>
+            {% endfor %}
+          </imgs>
+          <sizes><![CDATA[{{ product.size }}]]></sizes>
+          <IsPromoted>1</IsPromoted>
+          <oldprice>{{ product.regular_price }}</oldprice>
+          <desc><![CDATA[{{ product.description | plain }}]]></desc>
+          <gender><![CDATA[]]></gender>
+          <attrs>
+            <attr name="Kolor"><![CDATA[{{ product.color }}]]></attr>
+            <attr name="Kod_producenta"><![CDATA[{{ product.sku }}]]></attr>
+          </attrs>
+        </offer>
+      {% endfor %}
+    </offers>

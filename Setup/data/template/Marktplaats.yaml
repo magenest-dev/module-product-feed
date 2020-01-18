@@ -1,0 +1,25 @@
+name: 'Marktplaats'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <feed>
+      {% for product in context.products %}
+        <item>
+          <id><![CDATA[{{ product.sku }}]]></id>
+          <title><![CDATA[{{ product.name }}]]></title>
+          <description><![CDATA[{{ product.description | stripHtml | plain }}]]></description>
+          <category><![CDATA[{{ product.category }}]]></category>
+          <subcategory><![CDATA[{{ product.category.path }}]]></subcategory>
+          <link><![CDATA[{{ product.url }}]]></link>
+          <price>{{ product.final_price }}</price>
+          <phonenumber></phonenumber>
+          <email>true</email>
+          <photos>
+          {% for image in product.gallery %}
+            <g:photo><![CDATA[{{ image }}]]></g:photo>
+          {% endfor %}
+          </photos>
+        </item>
+      {% endfor %}
+    </feed>

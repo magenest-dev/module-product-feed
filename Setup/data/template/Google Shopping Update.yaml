@@ -1,0 +1,19 @@
+name: 'Google Shopping Update'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8" ?>
+    <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">  
+      <channel>  
+        <title>Data feed Title</title>
+        <link>{{ context.store.base_url }}</link>
+        <description>Data feed description.</description>
+        {% for product in context.products %}
+        <item>
+          <g:id><![CDATA[{{ product.sku }}]]></g:id>
+          <g:price>{{ product.final_price }}</g:price>
+          <g:availability>in stock</g:availability>
+        </item>
+        {% endfor %}
+      </channel>
+    </rss>

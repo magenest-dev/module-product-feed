@@ -1,0 +1,20 @@
+name: ShopPrice
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <products>
+      {% for product in context.products %}
+      <product>
+        <product_id><![CDATA[{{ product.sku }}]]></product_id>
+        <product_model><![CDATA[{{ product.model }}]]></product_model>
+        <product_name><![CDATA[{{ product.name }}]]></product_name>
+        <product_url><![CDATA[{{ product.url }}]]></product_url>
+        <product_price>{{ product.final_price }}</product_price>
+        <product_description><![CDATA[{{ product.description | stripHtml }}]]></product_description>
+        <manufacturer_name><![CDATA[{{{{ product.description | stripHtml }}</manufacturer_name>
+        <category_name><![CDATA[{{ product.category }}]]></category_name>
+        <image_url>{{ product.image }}</image_url>
+      </product>
+      {% endfor %}
+    </products>

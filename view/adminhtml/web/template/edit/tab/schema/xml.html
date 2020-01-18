@@ -1,0 +1,82 @@
+<fieldset class="fieldset admin__fieldset schema schema__type-xml">
+    <legend class="legend">
+        <span data-bind="i18n: 'Content Settings'">Content Settings</span>
+    </legend>
+    <div>
+        <textarea class="codemirror" name="xml[schema]"
+                  data-bind="afterRender: initEditor"></textarea>
+
+        <div class="schema-pattern">
+            <div class="row">
+                <div class="schema-pattern__type">
+                    <select
+                            data-bind="
+                        options: jQuery.patternTypes,
+                        optionsText: 'label',
+                        optionsValue: 'value',
+                        value: pattern.type">
+                    </select>
+                </div>
+
+                <div class="schema-pattern__value">
+                    <input type="text" class="input-text"
+                           data-bind="
+                        visible: pattern.type() == 'pattern',
+                        value: pattern.pattern"/>
+
+                    <select
+                            data-bind="
+                        visible: pattern.type() != 'pattern',
+                        foreach: jQuery.attributes,
+                        value: pattern.attribute">
+                        <!-- ko if: $index() == 0 -->
+                        <option value="">-- Please Select --</option>
+                        <!-- /ko -->
+                        <optgroup data-bind="attr: {label: label}, foreach: value">
+                            <option data-bind="text: label, value: value"></option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="schema-modifiers">
+                <div data-role="sortable" data-bind="foreach: pattern.modifiers">
+                    <div class="schema-modifier">
+                        <div class="row">
+                            <div class="schema-modifier__modifier">
+                                <select
+                                        data-bind="
+                        options: jQuery.modifiers,
+                        optionsText: 'label',
+                        optionsValue: 'value',
+                        optionsCaption: '-- Please Select --',
+                        value: modifier">
+                                </select>
+                            </div>
+
+                            <!--ko foreach: args() -->
+                            <div class="schema-modifier__arg">
+                                <input type="text"
+                                       data-bind="
+                        value: $data.argument,
+                        attr: {
+                            placeholder: $data.default,
+                            title: label">
+                            </div>
+                            <!-- /ko -->
+
+                            <div class="schema-modifier__additional">
+                                <div class="schema-icon schema-icon__remove"
+                                     data-bind="click: $parent.pattern.removeModifier"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <pre data-bind="text:pattern.toString()"></pre>
+                <button data-bind="click: pattern.addModifier">
+                    Add modifier
+                </button>
+            </div>
+        </div>
+    </div>
+</fieldset>

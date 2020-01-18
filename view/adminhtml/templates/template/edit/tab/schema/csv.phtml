@@ -1,0 +1,50 @@
+<?php
+//@codingStandardsIgnoreFile
+
+/** @var \Magenest\ProductFeed\Helper\Output $outputHelper */
+$outputHelper = $this->helper('Magenest\ProductFeed\Helper\Output');
+
+$libraryInit = [
+    'FeedLibrary' => [
+        'url' => $this->getUrl('feed/feed/library')
+    ]
+];
+?>
+<script>
+    // we disabled mutation observers that used in ui/../lib/dom-observer.js for prevent slow rendering if we have many attributes
+    window.MutationObserver = function() {
+        this.observe = function () {
+
+        }
+    }
+</script>
+
+<div class="entry-edit form-inline">
+    <?php echo $block->getFormHtml() ?>
+</div>
+
+<?php echo $block->getChildHtml('form_after') ?>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $.attributes = <?php echo \Zend_Json_Encoder::encode($outputHelper->getAttributeOptions()) ?>;
+        $.modifiers = <?php echo \Zend_Json_Encoder::encode($outputHelper->getFilterOptions()) ?>;
+        $.validators = <?php echo \Zend_Json_Encoder::encode($outputHelper->getValidatorOptions()) ?>;
+        $.patternTypes = <?php echo \Zend_Json_Encoder::encode($outputHelper->getPatternTypeOptions()) ?>;
+    });
+</script>
+
+<script type="text/x-magento-init">
+    <?php echo \Zend_Json_Encoder::encode($block->getJsConfig()) ?>
+</script>
+
+<button data-mage-init='<?= \Zend_Json_Encoder::encode($libraryInit) ?>'
+        class="feed__library-button"
+        onclick="return false;"><i class="fa fa-graduation-cap"></i> Library of patterns
+</button>
+
+<div data-bind="scope: 'schema_csv'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>

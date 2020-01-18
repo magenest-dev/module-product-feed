@@ -1,0 +1,22 @@
+name: Partner-Ads
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="iso-8859-1" ?>
+    <produkter>
+      {% for product in context.products %}
+      <produkt>
+        <kategorinavn><![CDATA[{{ product.category.path }}]]></kategorinavn>
+        <brand><![CDATA[{{ product.manufacturer }}]]></brand>
+        <produktid><![CDATA[{{ product.entity_id }}]]></produktid>
+        <produktnavn><![CDATA[{{ product.name }}]]></produktnavn>
+        <produktbeskrivelse><![CDATA[{{ product.description | stripHtml | truncate: '500' }}]]></produktbeskrivelse>
+        <pris><![CDATA[{{ product.final_price }}]]></pris>
+        <gammelpris><![CDATA[{{ product.price }}]]></gammelpris>
+        <billedurl><![CDATA[{{ product.image }}]]></billedurl>
+        <vareurl><![CDATA[{{ product.url }}]]></vareurl>
+        <lagerantal><![CDATA[{{ product.sku }}]]></lagerantal>
+        <fragtomk></fragtomk> 
+      </produkt>
+      {% endfor %}
+    </produkter>

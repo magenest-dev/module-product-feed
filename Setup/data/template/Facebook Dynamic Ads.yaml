@@ -1,0 +1,30 @@
+name: 'Facebook Dynamic Ads'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8" ?>
+    <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+      <channel>
+        <title>Data feed Title</title>
+        <link>{{ context.store.base_url }}</link>
+        <description>Data feed description.</description>
+        {% for product in context.products %}
+        <item>
+          <g:id><![CDATA[{{ product.sku | truncate: '100' }}]]></g:id>
+          <title><![CDATA[{{ product.name | truncate: '500' }}]]></title>
+          <link><![CDATA[{{ product.parent.url }}]]></link>
+          <g:price>{{ product.final_price }}</g:price>
+          <description><![CDATA[{{ product.description | stripHtml | plain | truncate: '5000' }}]]></description>
+          <g:product_type><![CDATA[{{ product.category.path }}]]></g:product_type>
+          <g:google_product_category><![CDATA[]]></g:google_product_category>
+          <g:image_link><![CDATA[{{ product.image }}]]></g:image_link>
+          <g:condition>new</g:condition>
+          <g:availability>{{ product.stock_status }}</g:availability>
+          <g:shipping_weight>{{ product.weight }} kg</g:shipping_weight>
+          <g:brand><![CDATA[{{ product.manufacturer }}]]></g:brand>
+          <g:mpn><![CDATA[{{ product.sku }}]]></g:mpn>
+          <g:gtin><![CDATA[{{ product.upc }}]]></g:gtin>
+        </item>
+        {% endfor %}
+      </channel>
+    </rss>

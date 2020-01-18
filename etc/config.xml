@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_ProductFeed extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_ProductFeed
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <test>
+            <email>
+                <send_email>magenst_productfeed_sendmail</send_email>
+            </email>
+        </test>
+    </default>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_ProductFeed extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_ProductFeed
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="feed" frontName="feed">
+            <module name="Magenest_ProductFeed" />
+        </route>
+    </router>
+</config>

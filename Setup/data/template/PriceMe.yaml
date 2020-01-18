@@ -1,0 +1,23 @@
+name: PriceMe
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <Products>
+      {% for product in context.products %}
+      <Product>
+        <mpn><![CDATA[{{ product.sku }}]]></mpn>
+        <UPC><![CDATA[{{ product.upc }}]]></UPC>
+        <UIC><![CDATA[{{ product.sku }}]]></UIC>
+        <Name><![CDATA[{{ product.name | truncate: '255' }}]]></Name>
+        <Price>{{ product.final_price }}</Price> 
+        <Product_URL><![CDATA[{{ product.url }}]]></Product_URL>
+        <Category><![CDATA[{{ product.category.path }}]]></Category>
+        <Manufacturer><![CDATA{{ product.category.path }}]]></Manufacturer>
+        <Stock_Status>Y</Stock_Status>
+        <Condition>New</Condition>
+        <Image_URL><![CDATA[{{ product.image }}]]></Image_URL>
+        <LongDescription><![CDATA[{{ product.description | plain | truncate: '255' }}]]></LongDescription>
+      </Product>
+      {% endfor %}
+    </Products>

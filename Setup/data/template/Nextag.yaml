@@ -1,0 +1,91 @@
+name: Nextag
+type: txt
+csv:
+  delimiter: '|'
+  enclosure:
+  include_header: '1'
+  extra_header:
+  schema:
+    - order: '0'
+      header: 'Product Name'
+      type:
+      pattern:
+      attribute: name
+    
+    - order: '1'
+      header: Manufacturer
+      type:
+      pattern:
+      attribute: manufacturer
+    
+    - order: '2'
+      header: 'Manufacturer Part #'
+      type:
+      pattern: '{mpn}'
+      attribute: sku
+    
+    - order: '3'
+      header: UPC
+      type:
+      pattern: '{upc}'
+      attribute:
+    
+    - order: '4'
+      header: 'Seller Part #'
+      type:
+      pattern:
+      attribute: sku
+    
+    - order: '5'
+      header: Category
+      type:
+      pattern:
+      attribute: category_path
+    
+    - order: '6'
+      header: Description
+      type:
+      pattern:
+      attribute: description
+    
+    - order: '7'
+      header: Price
+      type:
+      pattern:
+      attribute: final_price
+    
+    - order: '8'
+      header: 'Stock Status'
+      type: pattern
+      pattern: 'In Stock'
+      attribute:
+    
+    - order: '9'
+      header: 'Click-Out URL'
+      type:
+      pattern:
+      attribute: url
+    
+    - order: '10'
+      header: 'Image URL'
+      type:
+      pattern:
+      attribute: image
+    
+    - order: '11'
+      header: Condition
+      type: pattern
+      pattern: new
+      attribute:
+    
+    - order: '12'
+      header: 'Ground Shipping'
+      type: pattern
+      pattern: '0.00'
+      attribute:
+    
+    - order: '13'
+      header: Weight
+      type:
+      pattern:
+      attribute: weight

@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © 2019 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_ProductFeed extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_ProductFeed
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magenest_feed_listing_data_source" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\ProductFeed\Grid\Collection</item>
+                <item name="magenest_mapping_feed_listing_data_source" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\Mapping\Grid\Collection</item>
+                <item name="magenest_logs_feed_listing_data_source" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\Logs\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magenest\ProductFeed\Model\ResourceModel\ProductFeed\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_product_feed</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\ProductFeed</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magenest\ProductFeed\Model\ResourceModel\Mapping\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_mapping_category</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\Mapping</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magenest\ProductFeed\Model\ResourceModel\Logs\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_product_feed_logs</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\ProductFeed\Model\ResourceModel\Logs</argument>
+        </arguments>
+    </virtualType>
+</config>

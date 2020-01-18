@@ -1,0 +1,97 @@
+name: Shopzilla
+type: txt
+csv:
+  delimiter: tab
+  enclosure:
+  include_header: '0'
+  extra_header:
+  schema:
+    - header: 'Category ID'
+      order: 0
+      type:
+      pattern:
+      attribute: category
+    
+    - header: Manufacturer
+      order: 1
+      type:
+      pattern:
+      attribute: manufacturer
+    
+    - header: Title
+      order: 2
+      type:
+      pattern:
+      attribute: name
+    
+    - header: Description
+      order: 3
+      type:
+      pattern:
+      attribute: description
+    
+    - header: 'Product URL'
+      order: 4
+      type:
+      pattern:
+      attribute: url
+    
+    - header: 'Image URL'
+      order: 5
+      type:
+      pattern:
+      attribute: image
+    
+    - header: SKU
+      order: 6
+      type:
+      pattern:
+      attribute: sku
+    
+    - header: Availability
+      order: 7
+      type: pattern
+      pattern: 'In Stock'
+      attribute:
+    
+    - header: Condition
+      order: 8
+      type: pattern
+      pattern: new
+      attribute:
+    
+    - header: 'Ship Weight'
+      order: 9
+      type:
+      pattern:
+      attribute: weight
+    
+    - header: 'Ship Cost'
+      order: 10
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: Bid
+      order: 11
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: 'Promotional Code'
+      order: 12
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: UPC
+      order: 13
+      type: pattern
+      pattern:
+      attribute:
+    
+    - header: Price
+      order: 14
+      type:
+      pattern:
+      attribute: price

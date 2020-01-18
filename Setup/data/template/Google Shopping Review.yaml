@@ -1,0 +1,48 @@
+name: 'Google Shopping Review'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="UTF-8"?>
+    <feed xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://www.google.com/shopping/reviews/schema/product/2.2/product_reviews.xsd">
+      <version>2.2</version>
+      <aggregator>
+        <name>Sample Reviews Aggregator</name>
+      </aggregator>
+      <publisher>
+        <name>Sample Retailer</name>
+        <favicon>{{ context.store.base_url }}favicon.png</favicon>
+      </publisher> 
+      <reviews>      
+        {% for review in context.reviews %}
+        <review>
+          <review_id>{{ review.id }}</review_id>
+          <reviewer>
+            <name>{{ review.nickname | replace: ' ', '_' }}</name>
+          </reviewer>
+          <review_timestamp>{{ review.created_at  | dateFormat: 'c' }}</review_timestamp>
+          <title><![CDATA[{{ review.title }}]]></title>
+          <content><![CDATA[{{ review.detail }}]]></content>
+          <review_url type="singleton"><![CDATA[{{ review.product.url }}]]></review_url>
+          <ratings>
+            <overall min="1" max="5">{{ review.rating }}</overall>
+          </ratings>
+          <products>
+            <product>
+              <product_ids>
+                <mpns>
+                  <mpn><![CDATA[{{ review.product.sku }}]]></mpn>
+                </mpns>
+                <skus>
+                  <sku><![CDATA[{{ review.product.sku }}]]></sku>
+                </skus>
+              </product_ids>
+              <product_name><![CDATA[{{ review.product.name }}]]></product_name>
+              <product_url><![CDATA[{{ review.product.url }}]]></product_url>
+            </product>
+          </products>
+        </review>
+        {% endfor %}
+      </reviews>
+    </feed>

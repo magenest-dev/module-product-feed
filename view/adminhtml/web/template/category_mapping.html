@@ -1,0 +1,70 @@
+<div class="fieldset category-mapping">
+    <div class="mapping-grid" data-bind="foreach: rows">
+        <div class="row-wrapper"
+             data-bind="css: 'level-' + level, style: {display: visible() ? 'block' : 'none'}">
+            <div class="row" data-bind="css: {_opened: opened, _empty: !has_childs}">
+                <div class="actions">
+                    <i class="fa fa-plus-square-o" data-bind="click: toggle, visible: !opened()"></i>
+                    <i class="fa fa-minus-square-o" data-bind="click: toggle, visible: opened()"></i>
+                </div>
+                <div class="name" data-bind="click: toggle">
+                    <span data-bind="text: $data.name"></span> (ID: <span data-bind="text:category_id"></span>)
+                </div>
+                <div class="map">
+                    <input type="text" autocomplete="off"
+                           data-bind="
+                            value: map,
+                            valueUpdate: 'afterkeydown',
+                            attr: {
+                                name: 'mapping[' + category_id + ']',
+                                value: placeholder,
+
+                            },
+                            event: {
+                                suggestselect: onSuggestSelect
+                            },
+                            mageInit: {
+                                dynamicCategorySearch: {
+                                    termAjaxArgument: 'query',
+                                    template: '#dynamicCategorySearch',
+                                    minLength: 1,
+                                    source: _autocompleteUrl,
+                                    storageLimit: 1000
+                                }
+                            }
+                        "
+                    />
+                    <div class="feed__dynamic-category-search" style="display: none">
+                        <div class="feed__dynamic-category-spinner">
+                            <div class="spinner-item spinner-item-1"></div>
+                            <div class="spinner-item spinner-item-2"></div>
+                            <div class="spinner-item spinner-item-3"></div>
+                            <div class="spinner-item spinner-item-4"></div>
+                            <div class="spinner-item spinner-item-5"></div>
+                            <div class="spinner-item spinner-item-6"></div>
+                            <div class="spinner-item spinner-item-7"></div>
+                            <div class="spinner-item spinner-item-8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="dynamicCategorySearch" type="text/x-magento-template">
+    <ul data-mage-init='{"menu":[]}'>
+        <% if (data.items.length) { %>
+        <% _.each(data.items, function(value){ %>
+        <li
+        <%= data.optionData(value) %> class="item">
+        <a href="#" class="title"><%- value.path %> [<%- value.file %>] </a>
+        </li>
+        <% }); %>
+        <% } else if (data.noRecordsText) { %>
+        <li class="mage-suggest-no-records">
+            <a href="#" class="title">No categories found.</a>
+        </li>
+        <% } %>
+    </ul>
+</script>

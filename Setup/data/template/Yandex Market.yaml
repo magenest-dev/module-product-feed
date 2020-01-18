@@ -1,0 +1,43 @@
+name: 'Yandex Market'
+type: xml
+xml:
+  schema: |
+    <!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+    <yml_catalog date="{{ context.time | dateFormat: "d.m.Y H:i:s" }}">
+      <shop>
+        <name>Test</name>
+        <company>Test</company>
+        <url>{{ context.store.base_url }}</url>
+        <platform>Magento</platform>
+        <email>example@example.com</email>
+        <currencies>
+          <currency id="RUR" rate="1" />
+        </currencies>
+        <categories>
+          {% for category in context.categories %}
+            <category id="{{ category.id }}" parentId="{{category.parent_category.id}}"><![CDATA[{{ category.name }}]]></category>
+          {% endfor %}
+        </categories>
+        <offers>
+          {% for product in context.products %}
+          <offer id="{{ product.entity_id }}" available="true">
+            <url><![CDATA[{{ product.url }}]]></url>
+            <price>{{ product.final_price }}</price>
+            <currencyId>RUR</currencyId>
+            <categoryId>{{ product.category.id }}</categoryId>
+            <picture>{{ product.image }}</picture>
+            <store>true</store>
+            <pickup>true</pickup>
+            <delivery>false</delivery>
+            <local_delivery_cost>300</local_delivery_cost>
+            <name><![CDATA[{{ product.name }}]]></name>
+            <vendor>{{ product.manufacturer }}</vendor>
+            <vendorCode>{{ product.sku }}</vendorCode>
+            <description><![CDATA[{{ product.description | stripHtml }}]]></description>
+            <sales_notes><![CDATA[{{ product.description | stripHtml }}]]></sales_notes>
+            <country_of_origin>{{ product.country_of_manufacture }}</country_of_origin>
+          </offer>
+          {% endfor %}
+        </offers>
+      </shop>
+    </yml_catalog>

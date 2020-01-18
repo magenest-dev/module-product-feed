@@ -1,0 +1,146 @@
+.feed__dialog-progress {
+    width: 700px !important;
+    height: 300px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 50% !important;
+    margin-left: -350px !important;
+
+    .ui-dialog-content {
+        text-align: center;
+
+        .spinner {
+            font-size: 6rem;
+            margin-top: 2rem;
+        }
+
+        .steps-wizard {
+            .nav-bar {
+                text-align: center;
+                float: initial;
+                width: 520px;
+                margin: 0 auto;
+            }
+        }
+
+        .message {
+            overflow: hidden;
+            height: 175px;
+
+            text-align: left;
+
+            b {
+                font-weight: 600;
+            }
+
+            table {
+                margin-top: 1.5rem;
+
+                tr {
+                    th {
+                        font-weight: 600;
+                        padding: 0.5rem 3rem 0.5rem 0;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@progress__border-color: @color-gray80;
+@progress__color: @color-gray98;
+
+@progress-bar__background-color: #79a22e;
+@progress-bar__color: @color-white;
+@progress-bar__height: 3rem;
+
+//
+//  Progress bars
+//  _____________________________________________
+
+//
+//  Bar animations
+//  ---------------------------------------------
+
+//  WebKit
+
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 4rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+//  Spec and IE10+
+
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 4rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+//
+//  Bar
+//  ---------------------------------------------
+
+//  Outer container
+
+.progress {
+    background-color: @progress__color;
+    border: 1px solid @progress__border-color;
+    height: @progress-bar__height;
+    overflow: hidden;
+}
+
+//  Bar of progress
+
+.progress-bar {
+    background-color: @progress-bar__background-color;
+    color: @progress-bar__color;
+    float: left;
+    font-size: 11px;
+    height: 100%;
+    line-height: @progress-bar__height;
+    text-align: center;
+    transition: width .6s ease;
+    width: 0;
+}
+
+//  Call animation for the active one
+
+.progress-bar {
+    &.active {
+        .animation(progress-bar-stripes 2s linear infinite);
+    }
+}
+
+.progress-bar-text-description {
+    .lib-clearfix();
+
+    margin-bottom: 1rem;
+    margin-top: @progress-bar__height;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    .progress-bar-text-description-title {
+        float: left;
+    }
+
+    .progress-bar-text-description-eta {
+        float: right;
+    }
+}
+
+.progress-bar-text-progress {
+    text-align: right;
+    margin-right: 0.5rem;
+    overflow: visible;
+    color: #FFF;
+    white-space: nowrap;
+}

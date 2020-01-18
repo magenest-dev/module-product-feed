@@ -1,0 +1,64 @@
+name: Newegg
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8"?>
+    <NeweggEnvelope xsi:noNamespaceSchemaLocation="Itemfeed.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Header>
+        <DocumentVersion>1.0</DocumentVersion>
+      </Header>
+      <MessageType>BatchItemCreation</MessageType>
+      <Overwrite>Yes</Overwrite>
+      <Message>
+        <Itemfeed>
+          <SummaryInfo>
+            <SubCategoryID>1704</SubCategoryID>
+          </SummaryInfo>
+          {% for product in context.products %}
+          <Item>
+            <Action>Create Item</Action>
+            <BasicInfo>
+              <SellerPartNumber><![CDATA[{{ product.sku }}]]></SellerPartNumber>
+              <Manufacturer><![CDATA[{{ product.manufacturer }}]]></Manufacturer>
+              <ManufacturerPartNumberOrISBN><![CDATA[{{ product.mpn }}]]></ManufacturerPartNumberOrISBN>
+              <UPC><![CDATA[{{ product.upc{{ product.name }}</UPC>
+              <WebsiteShortTitle><![CDATA[{{ product.name }}]]></WebsiteShortTitle>
+              <ProductDescription><![CDATA[{{ product.short_description }}]]></ProductDescription>
+              <ItemDimension>
+                <ItemLength>2</ItemLength>
+                <ItemWidth>2</ItemWidth>
+                <ItemHeight>2</ItemHeight>
+              </ItemDimension>
+              <ItemWeight>{{ product.weight }}</ItemWeight>
+              <ItemCondition>New</ItemCondition>
+              <ShippingRestriction>No</ShippingRestriction>
+              <SellingPrice>{{ product.price }}</SellingPrice>
+              <MAP></MAP>
+              <CheckoutMAP>False</CheckoutMAP>
+              <Shipping>Default</Shipping>
+              <Inventory>{{ product.qty }}</Inventory>
+              <ActivationMark>True</ActivationMark>
+              <ItemImages>
+                <Image>
+                  <ImageUrl>{{ product.image }}</ImageUrl>
+                  <IsPrimary>1</IsPrimary>
+                </Image>
+              </ItemImages>
+            </BasicInfo>
+            <SubCategoryProperty>
+              <Skis>
+                <SkisBrand>###YourBrand###</SkisBrand>
+                <SkisModel>###YourModel###</SkisModel>
+                <SkisSize>###88 cm###</SkisSize>
+                <SkisType>###Alpine###</SkisType>
+                <SkisColor>###Black###</SkisColor>
+                <SkisColorMapping>###Black###</SkisColorMapping>
+                <SkisAge>###Adult###</SkisAge>
+                <SkisGender>###Male##</SkisGender>
+              </Skis>
+            </SubCategoryProperty>
+          </Item>
+          {% endfor %}
+        </Itemfeed>
+      </Message>
+    </NeweggEnvelope>

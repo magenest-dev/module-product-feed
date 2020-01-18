@@ -1,0 +1,38 @@
+name: 'Google Shopping (configurable products)'
+type: xml
+xml:
+  schema: |
+    <?xml version="1.0" encoding="utf-8" ?>
+    <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">  
+      <channel>  
+        <title>Data feed Title</title>
+        <link>{{ context.store.base_url }}</link>
+        <description>Data feed description.</description>
+        {% for product in context.products %}
+        <item>
+          <g:id><![CDATA[{{ product.sku }}]]></g:id>
+          <g:item_group_id><![CDATA[{{ product.parent.sku }}]]></g:item_group_id>
+          <title><![CDATA[{{ product.name | truncate: '150' }}]]></title>
+          <link><![CDATA[{{ product.parent.url }}]]></link>
+          <g:price>{{ product.final_price }}</g:price>
+          <description><![CDATA[{{ product.description | stripHtml | plain | truncate: '5000' }}]]></description>
+          <g:product_type><![CDATA[{{ product.parent.category.path }}]]></g:product_type>
+          <g:google_product_category><![CDATA[]]></g:google_product_category>
+          <g:image_link><![CDATA[{{ product.image }}]]></g:image_link>
+          {% for image in product.gallery %}
+            <g:additional_image_link><![CDATA[{{ image }}]]></g:additional_image_link>
+          {% endfor %}
+          <g:condition>new</g:condition>
+          <g:availability>{{ product.stock_status }}</g:availability>
+          <g:shipping_weight>{{ product.weight }} kg</g:shipping_weight>
+          <g:gender>unisex</g:gender>
+          <g:age_group>adult</g:age_group>
+          <g:color><![CDATA[{{ product.color }}]]></g:color>
+          <g:size><![CDATA[{{ product.size }}]]></g:size>
+          <g:brand><![CDATA[{{ product.manufacturer }}]]></g:brand>
+          <g:mpn><![CDATA[{{ product.sku }}]]></g:mpn>
+          <g:gtin><![CDATA[{{ product.upc }}]]></g:gtin>
+        </item>
+        {% endfor %}
+      </channel>
+    </rss>

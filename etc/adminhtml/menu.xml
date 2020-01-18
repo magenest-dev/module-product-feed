@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © 2019 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Magenest_ProductFeed extension
+ * NOTICE OF LICENSE
+ *
+ * @category Magenest
+ * @package Magenest_ProductFeed
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_ProductFeed::feed"
+             title="Product Feed"
+             translate="title"
+             module="Magenest_ProductFeed"
+             sortOrder="20"
+             resource="Magenest_ProductFeed::feed"
+             parent="Magento_Backend::marketing"
+        />
+        <add id="Magenest_ProductFeed::product"
+             title="Manage Feed"
+             translate="title"
+             module="Magenest_ProductFeed"
+             sortOrder="10"
+             parent="Magenest_ProductFeed::feed"
+             action="feed/index/index"
+             resource="Magenest_ProductFeed::product"
+        />
+        <add id="Magenest_ProductFeed::configuration"
+             title="Configuration"
+             translate="title"
+             module="Magenest_ProductFeed"
+             sortOrder="10"
+             parent="Magenest_ProductFeed::feed"
+             action="adminhtml/system_config/edit/section/sendmail"
+             resource="Magenest_ProductFeed::configuration"/>
+    </menu>
+</config>
